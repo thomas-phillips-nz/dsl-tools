@@ -47,7 +47,20 @@ class SlackNotifier
     static int NOTIFY_BAD_FAILURE = NOTIFY_FAILURE | NOTIFY_REPEATED_FAILURE
     static int NOTIFY_ALL_SUCCESS = NOTIFY_SUCCESS | NOTIFY_BACK_TO_NORMAL
 
-    void slack_notify(def job, def domain, def channel, def credentialId, int notify, boolean test_summary, def info_choice, def custom_message)
+    String custom_message = ""
+    String info_choice = "AUTHORS_AND_TITLES"
+
+    void set_custom_message(String message)
+    {
+        this.custom_message = message
+    }
+
+    void set_info_choice(String choice)
+    {
+        this.info_choice = choice
+    }
+
+    void slack_notify(def job, String domain, String channel, String credentialId, int notify, boolean test_summary)
     {
         job.with {
             publishers {
