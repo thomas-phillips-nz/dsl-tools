@@ -1,4 +1,4 @@
-import dsl-tools.SlackNotifier
+import dsl_tools.SlackNotifier
 
 def myjob = job("Slack_Test") {
 }
