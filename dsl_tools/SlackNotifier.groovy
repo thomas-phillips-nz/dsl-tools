@@ -110,9 +110,12 @@ class SlackNotifier
                     } else {
                         notifyRepeatedFailure(false)
                     }
+                    includeTestSummary(test_summary)
                     commitInfoChoice(info_choice)
                     if (custom_message != "") {
                         includeCustomMessage(true)
+                    } else {
+                        includeCustomMessage(false)
                     }
                     customMessage(custom_message)
                 }
